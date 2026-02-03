@@ -1,0 +1,87 @@
+import React from 'react'
+import { useState } from 'react';
+import { Menu, X } from "lucide-react";
+import { Link as ScrollLink } from "react-scroll"; 
+
+const Navbar = () => {
+     const [isOpen, setIsOpen] = useState(false);
+
+     
+
+    const navLinks = [
+    { to: "about", label: "About" },
+    { to: "tracks", label: "Tracks" },
+    { to: "prize", label: "Prize" },
+    { to: "timeline", label: "Timeline" },
+    { to: "rules", label: "Rule" },
+    { to: "faqs", label: "FAQs" },
+  ];
+
+    return (
+        <div className="w-full sticky top-0 z-50  backdrop-blur-lg shadow-md">
+      <div className="flex justify-between items-center h-16 px-6 md:px-18">
+        
+        <div className="logo flex items-center gap-1">
+          <img className="w-10 h-10 rounded-full " src="/logo3.png" alt="logo" />
+          <h1 className="text-2xl md:text-3xl font-semibold bg-gradient-to-r from-slate-50 to-slate-600 bg-clip-text text-transparent">
+           GDG
+            <span className="text-[#7CFF4D]font-semibold bg-gradient-to-r from-slate-400 to-slate-500 bg-clip-text text-transparent font-serif">
+               Hacker CUP
+            </span>
+          </h1>
+        </div>
+
+       
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <ScrollLink
+              key={link.to}
+              to={link.to}          
+              smooth={true}
+              duration={500}
+              offset={-70}          
+              spy={true}
+              activeClass="text-slate-400 underline"
+              className="cursor-pointer text-gray-100 hover:text-gray-100 text-lg"
+            >
+              {link.label}
+            </ScrollLink>
+          ))}
+
+          <div className="flex items-center gap-3">
+          </div>
+        </div>
+
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-gray-100"
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {isOpen && (
+        <div className="md:hidden flex flex-col items-center bg-gray-950/30 backdrop-blur-lg py-6 gap-6">
+          {navLinks.map((link) => (
+            <ScrollLink
+              key={link.to}
+              to={link.to}
+              smooth={true}
+              duration={500}
+              offset={-70}
+              spy={true}
+              activeClass="text-purple-500 underline"
+              className="cursor-pointer text-gray-100 hover:text-gray-100 text-lg"
+              onClick={() => setIsOpen(false)}
+            >
+              {link.label}
+            </ScrollLink>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+
+export default Navbar
