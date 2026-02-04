@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Timelines() {
   const timelineData = [
     {
@@ -5,35 +7,40 @@ export default function Timelines() {
       heading: "Registrations Open",
       text: (
         <>
-          <b>From 25 November 2025</b><br />
-          All Aboard! Save your spot at Purvanchal student-run hackathon By Google Developer Group on Campus KNIT.
+          <b>From 25 November 2025</b>
+          <br />
+          All Aboard! Save your spot at Purvanchal student-run hackathon by Google
+          Developer Group on Campus KNIT.
         </>
-      )
+      ),
     },
     {
       number: "2",
       heading: "Registrations Close",
       text: (
         <>
-          <b>Last date - 18 Feb 2026 at 11:59 PM</b><br />
-          Gate Closes - Last chance to join the hacker caravan.
+          <b>Last date - 18 Feb 2026 at 11:59 PM</b>
+          <br />
+          Gate Closes – Last chance to join the hacker caravan.
         </>
-      )
+      ),
     },
     {
       number: "3",
       heading: "Results for Round 1 (Idea Submission Round)",
-      text: "Shortlisted teams will be notified via email & our social media platforms by 20 Feb 2026."
+      text:
+        "Shortlisted teams will be notified via email & our social media platforms by 20 Feb 2026.",
     },
     {
       number: "4",
       heading: "Offline Round on Campus",
       text: (
         <>
-          <b>Date - 28 Feb, 09:00 AM Onwards</b><br />
+          <b>Date - 28 Feb, 09:00 AM Onwards</b>
+          <br />
           Ideas will be evaluated based on creativity, feasibility, and impact.
         </>
-      )
+      ),
     },
     {
       number: "5",
@@ -42,8 +49,8 @@ export default function Timelines() {
         <>
           <b>Date - 28 Feb, 09:00 PM Onwards</b>
         </>
-      )
-    }
+      ),
+    },
   ];
 
   return (
@@ -57,11 +64,12 @@ export default function Timelines() {
       </h1>
 
       <div className="relative max-w-6xl mx-auto">
-
-        {/* Center Line */}
-        <div className="absolute left-1/2 top-0 h-full w-1 
-                        bg-gradient-to-b from-[#B19EEF] via-[#7c7cff] to-transparent 
-                        transform -translate-x-1/2 hidden md:block" />
+        {/* Center Line (desktop only) */}
+        <div
+          className="absolute left-1/2 top-0 h-full w-1 
+                     bg-gradient-to-b from-[#B19EEF] via-[#7c7cff] to-transparent 
+                     -translate-x-1/2 hidden md:block"
+        />
 
         {timelineData.map((item, index) => {
           const isLeft = index % 2 === 0;
@@ -69,18 +77,35 @@ export default function Timelines() {
           return (
             <div
               key={index}
-              className={`relative flex flex-col md:flex-row items-center mb-16 
-                          ${isLeft ? "md:justify-start" : "md:justify-end"}`}
+              className={`relative flex flex-col md:flex-row items-center mb-16
+                ${isLeft ? "md:justify-start" : "md:justify-end"}`}
             >
+              {/* Number Circle */}
+              <div
+                className="
+                  static md:absolute
+                  md:left-1/2 md:top-1/2
+                  md:-translate-x-1/2 md:-translate-y-1/2
+                  mb-4 md:mb-0
+                  w-14 h-14 rounded-full
+                  bg-gradient-to-br from-slate-800 to-slate-400
+                  flex items-center justify-center
+                  text-xl font-bold text-white
+                  shadow-xl shadow-purple-500/40
+                "
+              >
+                {item.number}
+              </div>
+
               {/* Content Card */}
               <div
-                className={`w-full md:w-[46%] 
-                            bg-gradient-to-br from-slate-900 to-slate-800 
-                            border border-[#B19EEF]/30 
-                            rounded-xl p-6 
-                            shadow-lg shadow-purple-500/10
-                            hover:shadow-purple-500/30 hover:-translate-y-1
-                            transition-all duration-300`}
+                className={`w-full md:w-[46%]
+                  bg-gradient-to-br from-slate-900 to-slate-800
+                  border border-[#B19EEF]/30
+                  rounded-xl p-6
+                  shadow-lg shadow-purple-500/10
+                  hover:shadow-purple-500/30 hover:-translate-y-1
+                  transition-all duration-300`}
               >
                 <h3 className="text-xl font-bold text-[#B19EEF] mb-2">
                   {item.heading}
@@ -88,20 +113,6 @@ export default function Timelines() {
                 <div className="text-slate-200 text-sm leading-relaxed">
                   {item.text}
                 </div>
-              </div>
-
-              {/* Number */}
-              <div
-                className="absolute md:left-1/2 md:top-1/2 
-                           transform md:-translate-x-1/2 md:-translate-y-1/2
-                           mt-6 md:mt-0
-                           w-14 h-14 rounded-full 
-                           bg-gradient-to-br from-slate-800 to-slate-400 
-                           flex items-center justify-center 
-                           text-xl font-bold text-white 
-                           shadow-xl shadow-purple-500/40"
-              >
-                {item.number}
               </div>
             </div>
           );
