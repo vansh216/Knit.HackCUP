@@ -5,8 +5,8 @@ import LiquidEther from './Liquid';
 
 const Hero = () => {
   return (
-    <section className=" md:h-screen w-full mt-10  flex items-center">
-      <div style={{ width: '100%', height: 600, position: 'relative' }}>
+    <section className=" md:h-screen w-full   flex items-center">
+      <div style={{ width: '100%', height: 650, position: 'relative' }}>
   <LiquidEther
     colors={[ '#5227FF', '#FF9FFC', '#B19EEF' ]}
     mouseForce={20}
