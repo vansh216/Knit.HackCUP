@@ -1,4 +1,6 @@
 import React from 'react'
+
+
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import About from '../components/About'
@@ -13,9 +15,12 @@ import Team from "../components/Team"
 
 
 
+
+
 const Landing = () => {
   return (
-    <div className='h-100% bg-gray-950'>
+    <div
+     className='h-100% bg-gray-950 font-hacker tracking-widest'>
       <Navbar/>
       <Hero/>
       <About/>
