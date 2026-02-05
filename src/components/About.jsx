@@ -43,7 +43,7 @@ const About = () => {
     >
       <h2
         className="text-4xl md:text-5xl lg:text-6xl font-bold bg-linear-to-r from-slate-400 to-slate-700 bg-clip-text text-transparent"
-        style={{ fontFamily: "nexa, sans-serif" }}
+        
       >
         ABOUT
       </h2>
